@@ -16,16 +16,28 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="clear" />
+            android:text="clear"
+            android:onClick="clear"
+            />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="undo" />
+            android:text="undo"
+            android:onClick="undo"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="redo"
+            android:onClick="redo"
+            />
 
     </LinearLayout>
 
     <tw.dora.myviewtest.MyView
+        android:id="@+id/myview"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="5">
