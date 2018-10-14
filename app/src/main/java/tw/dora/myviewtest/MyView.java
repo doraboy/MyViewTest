@@ -101,6 +101,7 @@ public class MyView extends View {
                 line.add(point);
                 lines.add(line);
                 recycle.clear();
+                clearFlag = false;
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.v("brad","move: "+ex+" x" + ey);
@@ -131,11 +132,18 @@ public class MyView extends View {
     }
 
     public void undo(){
-        if(lines.size()>0){
-            recycle.add(lines.getLast());
-            lines.removeLast();
-            invalidate();
+        if (clearFlag){
+            clear();
+        }else{
+            if(lines.size()>0){
+                recycle.add(lines.getLast());
+                lines.removeLast();
+                invalidate();
+            }
+
         }
+
+
     }
 
     public void redo(){
@@ -150,7 +158,7 @@ public class MyView extends View {
             if (recycle.size() > 0) {
                 lines.add(recycle.getLast());
                 recycle.removeLast();
-                clearFlag = false;
+
                 invalidate();
 
             }
